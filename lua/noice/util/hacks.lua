@@ -253,7 +253,7 @@ function M.hide_cursor()
   -- schedule this, since otherwise Neovide crashes
   vim.schedule(function()
     if M._guicursor then
-      vim.go.guicursor = "a:NoiceHiddenCursor"
+      -- vim.go.guicursor = "a:NoiceHiddenCursor"
     end
   end)
   M._disable.guicursor = M.show_cursor
@@ -265,7 +265,7 @@ function M.show_cursor()
       vim.schedule(function()
         if M._guicursor and not Util.is_exiting() then
           -- we need to reset all first and then wait for some time before resetting the guicursor. See #114
-          vim.go.guicursor = "a:"
+          -- vim.go.guicursor = "a:"
           vim.cmd.redrawstatus()
           vim.go.guicursor = M._guicursor
           M._guicursor = nil
